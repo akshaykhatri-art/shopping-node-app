@@ -35,6 +35,15 @@ app.post('/products', async (req, res) => {
     res.redirect(`/products/${newProduct._id}`)
 })
 
+app.get('/products/cart', async (req, res) => {
+    const products = await Product.find({})
+    res.render('products/cart', { products })
+})
+
+app.get('/products/pay', (req, res) => {
+    res.send("THANK YOU COME AGAIN!")
+})
+
 app.get('/products/:id', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id)
