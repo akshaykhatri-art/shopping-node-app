@@ -7,6 +7,12 @@ const productSchema = new mongoose.Schema({
     },
     unitPrice: {
         type: Number,
+        min: 0,
+        required: true
+    },
+    quantity: {
+        type: Number,
+        min: 0,
         required: true
     },
     category: {
