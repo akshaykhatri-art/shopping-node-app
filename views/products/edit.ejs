@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Product</title>
+    <title>Edit Product Detail</title>
 </head>
 
 <body>
-
-    <h1>Add A Product</h1>
-    <form action="/products" method="POST">
+    <h1>Edit Product Detail</h1>
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
         <label for="name">Product Name</label>
-        <input type="text" name="name" id="name" placeholder="product name">
+        <input type="text" name="name" id="name" placeholder="product name" value="<%= product.name %>">
         <label for="price">Price Per Unit</label>
-        <input type="number" name="unitPrice" id="price" placeholder="product price">
-        <label for="quantity">Quantity</label>
-        <input type="number" name="quantity" id="quantity" placeholder="quantity">
+        <input type="number" name="unitPrice" id="price" placeholder="product price" value="<%= product.unitPrice %>">
+        <label for="category">Category</label>
+        <input type="number" name="quantity" id="quantity" placeholder="quantity" value="<%= product.quantity %>">
         <label for="category">Category</label>
         <select name="category" id="category">
             <option value="fruit">Fruit</option>
@@ -25,9 +24,9 @@
             <option value="dairy">Dairy</option>
             <option value="grain">Grain</option>
         </select>
-        <button>Add Product</button>
+        <button>Update</button>
     </form>
-
+    <a href="/products/<%= product._id %>">Cancel</a>
 </body>
 
 </html>
